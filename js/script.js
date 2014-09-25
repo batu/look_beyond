@@ -6,7 +6,7 @@ var redditapi = "http://www.reddit.com/r/earthporn.json?limit=" + numberOfPictur
 var number = 0; // iterator that will be used in the future
 var wallpapers = []; // array that stores the wallpapers
 var json; // initlise the json variable. ? unnecesary.
-var wait_time = 3500; // the wait time before each slide changes in miliseconds
+var wait_time = 5000; // the wait time before each slide changes in miliseconds
 
 // I see myself using it but I don't want to see the first element all the time. Might as well shuffle.
 function shuffle(array) {
@@ -38,8 +38,10 @@ function backgroundChange(crr){
 		}
 	});
 // I am hoping to make it wait untill the background change is done.
+
 		$("body").ready(function(){
-			$("#fullPage").fadeTo(800,0);
+
+			$("#fullPage").delay(900).fadeTo(800,0);
 		});
 }
 
