@@ -2,7 +2,7 @@
 
 // Here I am initlising the global variables that I am going to use;
 var numberOfPictures = 100; // This defines the number of pictures to be pulled from reddit API. Max 100 Default 25.
-var redditapi = "http://www.reddit.com/r/wallpaper.json?limit=" + numberOfPictures;  // The url of the API
+var redditapi = "http://www.reddit.com/r/earthporn.json?limit=" + numberOfPictures;  // The url of the API
 var number = 0; // iterator that will be used in the future
 var wallpapers = []; // array that stores the wallpapers
 var json; // initlise the json variable. ? unnecesary.
