@@ -23,18 +23,19 @@ var wait_time = 5000; // the wait time before each slide changes in miliseconds
 var term = "earthporn";
 var counter = 1;
 var wallpapernumber = 1;
+var toggle = 0;
 
 
 function searchReddit(){
 	$("#theResults").empty();
 	$("#container").empty();
-	$("#theResults").append("<h1>" + json["data"]["children"][wallpapernumber + 1]["data"]["title"] + "</h0>");
-	var title = json["data"]["children"][wallpapernumber + 1]["data"]["title"].split(" ");
+	$("#theResults").append("<h1>" + json["data"]["children"][wallpapernumber + 2]["data"]["title"] + "</h0>");
+	var title = json["data"]["children"][wallpapernumber + 2]["data"]["title"].split(" ");
 	console.log(title);
 	for (var p = stop_word_list.length - 1; p >= 0; p--) {
 		title.remove(stop_word_list[p]);
 	}
-
+	console.log("printing tilte " + title);
 	for (var i = title.length - 1; i >= 0; i--) {
 		searchWikipedia(title[i]);
 	}
@@ -58,6 +59,8 @@ function searchWikipedia(term){
 
 			var theSearchedTerm = data[0].toUpperCase();
 			var theSearchedResults = data[1];
+			console.log("printing seartched term results");
+			console.log(theSearchedTerm);
 
 			var htmlString = '';
 			htmlString +='<div class="box">';
@@ -219,7 +222,14 @@ $(document).ready(function(){
 		changePicture();
 	});
 	$("#bot-left").click(function(){
-		$(".hidden").fadeTo(550,1);
+		if (toggle == 0){
+			$(".hidden").fadeTo(550,1);
+			toggle = 1;
+		} else {
+			$(".hidden").fadeTo(550,0);
+			toggle = 0;
+		}
+
 	});
 });
 
