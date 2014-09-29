@@ -17,18 +17,13 @@ Array.prototype.remove = function() {
 var numberOfPictures = 100; // This defines the number of pictures to be pulled from reddit API. Max 100 Default 25.
 var redditapi = "http://www.reddit.com/r/earthporn.json?limit=" + numberOfPictures;  // The url of the API
 var number = 0; // iterator that will be used in the future
-var wallpapers = []; // array that stores the wallpapers
+var wallpapers = []; // array that stores the wsallpapers
 var json; // initlise the json variable. ? unnecesary.
 var wait_time = 5000; // the wait time before each slide changes in miliseconds
 var term = "earthporn";
 var counter = 1;
 var wallpapernumber = 1;
 
-function createHTML(nyObj, igObj){
-	console.log('Calling create HTML');
-
-
-}
 
 function searchReddit(){
 	$("#theResults").empty();
