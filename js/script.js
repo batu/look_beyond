@@ -22,6 +22,7 @@ var json; // initlise the json variable. ? unnecesary.
 var wait_time = 5000; // the wait time before each slide changes in miliseconds
 var term = "earthporn";
 var counter = 1;
+var toggle = 0;
 var wallpapernumber = 1;
 
 function createHTML(nyObj, igObj){
@@ -40,36 +41,38 @@ function searchReddit(){
 		title.remove(stop_word_list[p]);
 	}
 
-	for (var i = title.length - 1; i >= 0; i--) {
-		searchWikipedia(title[i]);
-	}
+		searchWikipedia(title);
+	
 }
 
-function searchWikipedia(term){
+function searchWikipedia(){
 	var subrdt = term;
-	var wikiURL = "http://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + subrdt;
+	var wikiURL = "https://www.kimonolabs.com/api/5o4mcg8y?apikey=C6i17gKN77lllFG9h0UxaUpYwrTIWcZ2";
+	var quoteObj;
 
 	$.ajax({
 		url: wikiURL,
 		type: "GET",
 		dataType: "jsonp",
-		error: function(data){
+		error: function(data,error){
+			console.log(error);
 			console.log("Something went wrong");
 		},
 		success: function(data){
-			console.log("Da da dat da daaaa");
-			console.log(data);
+			console.log("I AM HERE.");
+			console.log(rawStr);
+			quoteObj = data;
+			var rawStr = data.results.collection1[0].quote;
 
-
-			var theSearchedTerm = data[0].toUpperCase();
-			var theSearchedResults = data[1];
-
-			var htmlString = '';
-			htmlString +='<div class="box">';
-			htmlString +='<h3>' + theSearchedTerm + '</h3>';
-			htmlString +='<p>' +  theSearchedResults[0] + '</p>';
-			htmlString +='</div>';
-			$('#container').append(htmlString);
+			for (x = 0; x < rawStr.length-1; x++){
+				if (rawStr[x] == "\\") {
+					rawStr = rawStr.slice(0, x) + str.slice(x+1);
+					rawStr = rawStr.slice(0, x) + str.slice(x+1);
+				}
+			}
+			$("#container").empty();
+			$("#theResults").empty();
+			$("#theResults").append("<h1>" + rawStr + "</h1>");
 		}
 	});
 }
@@ -154,7 +157,7 @@ function changePicture(){
 	// The inital background change. Because using css is to mainstream.
 	//wallpapers = shuffle(wallpapers);
 	$('body').css('background-size', 'cover');
-	searchReddit();
+	searchWikipedia();
 }
 
 // The main function that kick starts the changePicture train.
@@ -224,7 +227,14 @@ $(document).ready(function(){
 		changePicture();
 	});
 	$("#bot-left").click(function(){
-		$(".hidden").fadeTo(550,1);
+		if (toggle == 0){
+			$(".hidden").fadeTo(550,1);
+			toggle = 1;
+		} else {
+			$(".hidden").fadeTo(550,0);
+			toggle = 0;
+		}
+
 	});
 });
 
