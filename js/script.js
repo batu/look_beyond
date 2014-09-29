@@ -17,32 +17,27 @@ Array.prototype.remove = function() {
 var numberOfPictures = 100; // This defines the number of pictures to be pulled from reddit API. Max 100 Default 25.
 var redditapi = "http://www.reddit.com/r/earthporn.json?limit=" + numberOfPictures;  // The url of the API
 var number = 0; // iterator that will be used in the future
-var wallpapers = []; // array that stores the wallpapers
+var wallpapers = []; // array that stores the wsallpapers
 var json; // initlise the json variable. ? unnecesary.
 var wait_time = 5000; // the wait time before each slide changes in miliseconds
 var term = "earthporn";
 var counter = 1;
 var toggle = 0;
 var wallpapernumber = 1;
+var toggle = 0;
 
-function createHTML(nyObj, igObj){
-	console.log('Calling create HTML');
-
-
-}
 
 function searchReddit(){
 	$("#theResults").empty();
 	$("#container").empty();
-	$("#theResults").append("<h1>" + json["data"]["children"][wallpapernumber + 1]["data"]["title"] + "</h0>");
-	var title = json["data"]["children"][wallpapernumber + 1]["data"]["title"].split(" ");
+	$("#theResults").append("<h1>" + json["data"]["children"][wallpapernumber + 2]["data"]["title"] + "</h0>");
+	var title = json["data"]["children"][wallpapernumber + 2]["data"]["title"].split(" ");
 	console.log(title);
 	for (var p = stop_word_list.length - 1; p >= 0; p--) {
 		title.remove(stop_word_list[p]);
 	}
 
 		searchWikipedia(title);
-	
 }
 
 function searchWikipedia(){
@@ -59,6 +54,7 @@ function searchWikipedia(){
 			console.log("Something went wrong");
 		},
 		success: function(data){
+
 			console.log("I AM HERE.");
 			console.log(rawStr);
 			quoteObj = data;
@@ -73,6 +69,7 @@ function searchWikipedia(){
 			$("#container").empty();
 			$("#theResults").empty();
 			$("#theResults").append("<h1>" + rawStr + "</h1>");
+
 		}
 	});
 }
