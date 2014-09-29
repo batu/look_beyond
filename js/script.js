@@ -27,18 +27,6 @@ var wallpapernumber = 1;
 var toggle = 0;
 
 
-function searchReddit(){
-	$("#theResults").empty();
-	$("#container").empty();
-	$("#theResults").append("<h1>" + json["data"]["children"][wallpapernumber + 2]["data"]["title"] + "</h0>");
-	var title = json["data"]["children"][wallpapernumber + 2]["data"]["title"].split(" ");
-	console.log(title);
-	for (var p = stop_word_list.length - 1; p >= 0; p--) {
-		title.remove(stop_word_list[p]);
-	}
-
-		searchWikipedia(title);
-}
 
 function searchWikipedia(){
 	var subrdt = term;
