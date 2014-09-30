@@ -164,51 +164,71 @@ $(document).ready(function(){
 		redditapi = "http://www.reddit.com/r/earthporn.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
+
+
 	});
 	$("#btn2").click(function(){
 		term = "carporn";
 		redditapi = "http://www.reddit.com/r/carporn.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 	});
 	$("#btn3").click(function(){
 		term = "historyporn";
 		redditapi = "http://www.reddit.com/r/historyporn.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 	});
 	$("#btn4").click(function(){
 		term = "pics";
 		redditapi = "http://www.reddit.com/r/pics.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 	});
 	$("#btn5").click(function(){
 		term = "foodporn";
 		redditapi = "http://www.reddit.com/r/foodporn.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 	});
 	$("#btn6").click(function(){
 		term = "roomporn";
 		redditapi = "http://www.reddit.com/r/roomporn.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 	});
 	$("#btn7").click(function(){
 		term = "aww";
 		redditapi = "http://www.reddit.com/r/aww.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 	});
 	$("#btn8").click(function(){
 		term = "earthporn+carporn+historyporn+pics+foodporn+roomporn+aww";
 		redditapi = "http://www.reddit.com/r/earthporn+carporn+historyporn+pics+foodporn+roomporn+aww.json?limit=" + numberOfPictures;
 		getPictures();
 		$(".button").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 	});
 	$("#bot-right").click(function(){
 		$(".hidden").fadeTo(550,0);
+		$(".bot-left").fadeTo(4000,1);
+		$(".bot-right").fadeTo(4000,1);
 		changePicture();
 	});
 	$("#bot-left").click(function(){

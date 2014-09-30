@@ -83,6 +83,7 @@ body{
 }
 
 .bot-right{
+  opacity: 0;
   position: fixed;
   float: right;
   bottom: 20px;
@@ -92,6 +93,7 @@ body{
 
 #bot-right{
   float: right;
+
 }
 
 .button1{
@@ -106,7 +108,7 @@ body{
    background: -moz-linear-gradient(top, #1f394a, #111d26);
    background: -ms-linear-gradient(top, #1f394a, #111d26);
    background: -o-linear-gradient(top, #1f394a, #111d26);
-   width: 20%;
+   width: 25%;
    height: 35%;
    -webkit-border-radius: 4px;
    -moz-border-radius: 4px;
@@ -196,6 +198,7 @@ color: orange;
 }
 
 .bot-left{
+  opacity: 0;
   position: fixed;
   float: left;
   bottom: 20px;
